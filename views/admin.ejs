@@ -1,0 +1,57 @@
+<%- include('layouts/header.ejs')%>
+
+<div class="container">
+    <div class="row my-4"></div>
+    <div class="col-lg-12">
+       
+        <% if(message){ %>
+        <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert"><button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><%= message.message %></strong>
+        </div>
+     
+      <%  } %>
+       
+       
+        <div class="table-responsive"> 
+            <% if (shops != '') { %>
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr >
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Shop Name</th>
+                            <th>Discription</th>
+                            <th>Location</th>
+                            <th>University</th>
+                            <th>Action</th>
+                    
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                      
+                        <% shops.forEach((row,index) => { %>
+                            <tr class="align-middle">
+                            <td><%= index  %></td>
+                            <td><img src="<%= row.Image %>" width="80px" height="60px" alt=""></td>
+                            <td><%= row.Name %></td>
+                            <td><%= row.Discribtion %></td>
+                            <td><a href=<%= row.Location %>> click</a></td>
+                            <td><%= row.University %></td>
+                            <td><a href="/admin/edit/<%= row._id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                             <a href="/admin/delete/<%= row._id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                       
+                    </tbody>
+                </table>
+            <% } else{ %>
+                <h1 class="text-center text-secondary mt-5">No users found in the DB</h1>
+                <%}%>
+        
+       </div>
+    </div>
+</div>
+  
+<%- include('layouts/footer.ejs')%>  

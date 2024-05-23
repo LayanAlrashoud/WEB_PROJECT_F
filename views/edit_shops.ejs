@@ -1,0 +1,49 @@
+<%- include('layouts/header.ejs') %>
+
+<div class="container">
+    <div class="row"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto mt-4">
+                <div class="card shadow">
+                    <div class="card-header bg-success">
+                        <h5 class="text-light">Edit New Shop (<%= shop.Name %>)</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/admin/update/<%= shop._id %>" method="post" id="add-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" name="Name" class="form-control form-control-lg" value="<%= shop.Name %>" placeholder="Enter Name" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="Discribtion">Discribtion</label>
+                                <input type="text" name="Discribtion" class="form-control form-control-lg" value="<%= shop.Discribtion %>" placeholder="Enter Discribtion" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="Location">Location</label>
+                                <input type="url" name="Location" class="form-control form-control-lg" value="<%= shop.Location %>" placeholder="Enter URL Location" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="Image" class="form-label">Select Image</label>
+                                <input type="file" name="Image" class="form-control form-control-lg" />
+                                <img src="/<%= shop.Image %>" width="100" class="img-thumbnail mt-1" />
+                            </div>
+                            <input type="hidden" name="old_image" value="<%= shop.Image %>">
+                             
+                            <div class="mb-3">
+                                <label for="University">University</label>
+                                <input type="text" name="University" value="<%= shop.University %>" class="form-control form-control-lg" placeholder="Enter University Name" required />
+                            </div>
+                            
+                            <div class="mb-3">
+                                <input type="submit" name="submit" value="Update Shop" class="btn btn-success btn-lg" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<%- include('layouts/footer.ejs') %>

@@ -1,0 +1,47 @@
+<%- include('layouts/header.ejs')%>
+
+<div class="container">
+    <div class="row"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto mt-4">
+                <div class="card shadow">
+                    <div class="card-header bg-primary">
+                        <h5 class="text-light">Add New Shop</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/admin/add" method="post" id="add-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" name="Name" class="form-control form-control-lg" placeholder="Enter Name" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Discribtion">Description</label>
+                                <input type="text" name="Discribtion" class="form-control form-control-lg" placeholder="Enter Description" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Location">Location</label>
+                                <input type="url" name="Location" class="form-control form-control-lg" placeholder="Enter URL Location" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Image" class="form-label">Select Image</label>
+                                <input type="file" name="Image" class="form-control form-control-lg" required/>
+                            </div>
+                             
+                            <div class="mb-3">
+                                <label for="university">University</label>
+                                <input type="text" name="University" class="form-control form-control-lg" placeholder="Enter University Name" required/>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <input type="submit" name="submit" value="Add Shop" class="btn btn-primary btn-lg" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<%- include('layouts/footer.ejs')%>
