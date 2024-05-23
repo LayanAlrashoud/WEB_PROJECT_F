@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const authRoutes = require('./auth');
+const passport = require('passport');
+
 require('dotenv').config();
 
 const app = express();
@@ -32,6 +36,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('uploads'));
+app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
 
 // تعيين الصفحة الرئيسية
@@ -42,6 +48,27 @@ app.get('/', (req, res) => {
 // استخدام التوجيهات الإدارية تحت /admin
 app.use('/admin', require('./routes/admin'));
 
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.DB_URI })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/admin', (req, res) => {
+  // Fetch your data (shops) from the database if necessary and pass it to the template
+  const shops = []; // Replace with actual database fetch logic
+  res.render('admin', { shops });
+});
+
+app.use(authRoutes);
+
+app.get('/admin', (req, res) => {
+  res.render('admin');
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

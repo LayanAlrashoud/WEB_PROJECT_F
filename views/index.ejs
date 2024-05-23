@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Universities</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
-    <h1>heloooooooooooooooo</h1>
+    <section id="header">
+        <a href="#"><img src="" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="/">HOME</a></li>
+                <div class="popup" onclick="myFunction()"> 
+                    <li><a href="#">About</a></li>
+                    <span class="popuptext" id="myPopup">Riyadh University Landmarks website is your comprehensive guide to exploring all the vibrant and distinctive locations within the campus of Riyadh University.</span>
+                </div>
+                <li><a href="#contactSection">CONTACT</a></li>
+                <li><a href="/auth/google">LogIn</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="hero">
+        <h2>Feeling lost?</h2>
+        <h4>Want to discover the <span class="text" style="color: rgb(79, 200, 209);"></span> on your campus?</h4>
+        <h4 style="color: rgb(79, 200, 209);">WE CAN HELP YOU</h4>
+        <h4>WELCOME to your guide</h4>
+        <button>Explore now</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="/public/assets/IMAMU_Logo.png" alt="">
+            <p>Imam Mohammed bin saud university</p>
+            <button onclick="location.href= 'imam.ejs' ">Explore</button>
+        </div>
+        <div class="fe-box">
+            <img src="/public/assets/KSU_Logo.png" alt="">
+            <p>King Saud university</p>
+            <button onclick="location.href= 'saud.ejs' ">Explore</button>
+        </div>
+        <div class="fe-box">
+            <img src="/public/assets/PNU-logo.jpg" alt="">
+            <p>Princess Nourah university</p>
+            <button onclick="location.href= 'nora.ejs' ">Explore</button>
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+    <script>
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
