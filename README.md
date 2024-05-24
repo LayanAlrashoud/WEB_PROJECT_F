@@ -6,7 +6,7 @@ This project is a website that offers detailed information about three universit
 
 ## Links
 - **Presentation**:https://www.canva.com/design/DAGGIPItorE/3QGxi_1NTsbU6U_kmhx_VA/view?utm_content=DAGGIPItorE&utm_campaign=designshare&utm_medium=link&utm_source=editor(#)
-- **Demo**: [Link to Demo](#)
+- **Demo**: https://drive.google.com/file/d/1ck6R-ktB9oB5Y5xwQXiBT5FFGawOpuAN/view?usp=sharing(#)
 - **Flowchart**: ![Flowchart](public/assets/web.drawio.png)
 
 ## Features
@@ -61,40 +61,45 @@ Clone the repository from GitHub:
 ```bash
 git clone https://github.com/LayanAlrashoud/WEB_PROJECT_F.git
 cd WEB_PROJECT_F
+```
 
 ## Routers
 The following are the key routes used in the application:
 
 ### Home Page
 The main landing page of the application.
-
+``` javascript
 app.get('/', (req, res) => {
     res.render('index');
 });
-
+```
 ### Google Authentication: Initiates Google authentication.
+``` javascript
 app.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
-
+```
 ### Google Callback: Handles the callback after Google has authenticated the user.
+``` javascript
 app.get('/google/callback', 
   passport.authenticate('google', { 
       failureRedirect: '/login-failure',
       successRedirect: '/'
   })
 );
-
+```
+``` javascript
 ### Login Failure: Redirects here if authentication fails.
 app.get('/login-failure', (req, res) => {
     res.send('Something went wrong');
 });
-
+```
+``` javascript
 ### University Pages: Routes for each university page.
 app.use('/nora', noraRoutes); 
 app.use('/imam', imamRoutes);
 app.use('/saud', saudRoutes);
-
+```
 ### Unishop Routes: Routes for managing university shops.
-
+``` javascript
 //To get a shop:
 
 router.get('/add', (req, res) => {
@@ -146,14 +151,17 @@ router.get('/delete/:id', async (req, res) => {
     await Unishop.findByIdAndDelete(req.params.id);
     res.redirect('/admin');
 });
-
+```
+## Screenshots:
+- **Homepage**: ![Homepage](public/assets/HomepageScreenshot.png)
+- **PNU Page**: ![PNU](public/assets/PNUScreenshot.png)
+- **Explore Section**: ![EXPLORE](public/assets/exploreScreenshot.png)
 
 ## Future Work
 Expand University Coverage: Include all universities in Saudi Arabia, offering comprehensive information about their majors, cafes, restaurants, and clubs.
 
-## Screenshots:
-
-
+## Resources
+https://youtu.be/zBTPDAh8ABM?si=aT_f9nl4U9vRx7oq (#)
 ## Team Members:
 1.	Shahad Almutairi
 2.	Lyane Alrashoud
