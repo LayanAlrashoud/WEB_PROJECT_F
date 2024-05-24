@@ -21,8 +21,12 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="/">HOME</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">CONTACT</a></li>
+                    <div class="popup" onclick="myFunction()"> 
+                        <li><a href="#">About</a></li>
+                        <span class="popuptext" id="myPopup">Riyadh University Landmarks website is your comprehensive guide
+                              to exploring all the vibrant and distinctive locations within the campus of Riyadh University.</span>
+                    </div>
+                    <li><a href="mailto:eyesgroupsgl@gmail.com">CONTACT</a></li>
 
                 </ul>
             </div>
@@ -66,68 +70,69 @@
         <div class="items-container">
             <div class="item-card">
                 <div class="item-image">
-                    <img src="assets/JavaTime_Case-Study_web2.jpg">
+                    <img src="/assets/tech.jpg">
                 </div>
                 <div class="item-info">
-                    <h2 class="brand">JavaTime</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
+                    <h2 class="brand">TechMinds</h2>
+                    <p class="description">improve your technical skilss </p>
+                    
                 </div>
             </div>
+
             <div class="item-card">
                 <div class="item-image">
-                    <img src="assets/dunkin-donuts-logo-wallpaper.jpg">
+                    <img src="/assets/images.png">
                 </div>
                 <div class="item-info">
-                    <h2 class="brand">Dunkin Donuts</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
+                    <h2 class="brand">google Club</h2>
+                    <p class="description">improve your technical skilss </p>
                 </div>
             </div>
+ 
+           
             <div class="item-card">
                 <div class="item-image">
-                    <img src="assets/new-subway®-retaurants-logo-5-HR.jpg">
+                    <img src="/assets/scac_ccis.jpg">
                 </div>
                 <div class="item-info">
-                    <h2 class="brand">Dunkin Donuts</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
+                    <h2 class="brand">cultural an social Club</h2>
+                    <p class="description">improve your social skilss </p>
                 </div>
-            </div>
+            </div> 
+
+            
             <div class="item-card">
                 <div class="item-image">
-                    <img src="assets/moon.png">
+                    <img src="/assets/Digital Minds.jpg">
                 </div>
                 <div class="item-info">
-                    <h2 class="brand">Dunkin Donuts</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
+                    <h2 class="brand">Digital Minds Club</h2>
+                    <p class="description">improve your technical skilss </p>
                 </div>
             </div>
+
+            
             <div class="item-card">
                 <div class="item-image">
-                    <img src="assets/dunkin-donuts-logo-wallpaper.jpg">
+                    <img src="/assets/ftcksu.jpg">
                 </div>
                 <div class="item-info">
-                    <h2 class="brand">Dunkin Donuts</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
+                    <h2 class="brand">Future technology Club</h2>
+                    <p class="description">improve your technical skilss </p>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="assets/Starbucks_Corporation_Logo_2011.svg.png">
-                </div>
-                <div class="item-info">
-                    <h2 class="brand">starbucks</h2>
-                    <p class="description">Enjoy your morning coffee </p>
-                    <span class="buy">buy now</span>
-                </div>
-            </div>
+            
+            
         </div>
     </section>
   
         <script src="script.js"> </script>
+        <script>
+            function myFunction() {
+                var popup = document.getElementById("myPopup");
+                popup.classList.toggle("show");
+            }
+        </script>
 </body>
 
 </html>

@@ -24,18 +24,16 @@ preBtn[i].addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-var summaryPopup = document.getElementById("summaryPopup");
-var aboutLink = document.querySelector("a[href='#']");
+  var summaryPopup = document.getElementById("summaryPopup");
+  var aboutLink = document.getElementById("aboutLink");
 
-aboutLink.addEventListener("click", function(event) {
-  event.preventDefault(); 
+  aboutLink.addEventListener("click", function(event) {
+      event.preventDefault();
 
-  summaryPopup.style.display = "block";
+      summaryPopup.style.display = "block";
 
-  setTimeout(function() {
-    summaryPopup.style.display = "none";
-  }, 3000); 
+      setTimeout(function() {
+          summaryPopup.style.display = "none";
+      }, 5000);
+  });
 });
-});
-
-

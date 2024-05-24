@@ -6,7 +6,7 @@ This project is a website that offers detailed information about three universit
 
 ## Links
 - **Flowchart**: [Link to Flowchart](#)
-- **Presentation**:https://www.canva.com/design/DAGGFNbphGo/ypFqstIFIaWnFRZ_TUNNTQ/view?utm_content=DAGGFNbphGo&utm_campaign=designshare&utm_medium=link&utm_source=editor#9(#)
+- **Presentation**:https://www.canva.com/design/DAGGIPItorE/3QGxi_1NTsbU6U_kmhx_VA/view?utm_content=DAGGIPItorE&utm_campaign=designshare&utm_medium=link&utm_source=editor(#)
 - **Demo**: [Link to Demo](#)
 ## Features
 
@@ -50,17 +50,9 @@ app.get('/login-failure', (req, res) => {
     res.send('Something went wrong');
 });
 University Pages: Routes for each university page.
-app.get('/imamu', (req, res) => {
-    res.render('imamu');
-});
-
-app.get('/ksu', (req, res) => {
-    res.render('ksu');
-});
-
-app.get('/pnu', (req, res) => {
-    res.render('pnu');
-});
+app.use('/nora', noraRoutes); 
+app.use('/imam', imamRoutes);
+app.use('/saud', saudRoutes);
 
 Unishop Routes: Routes for managing university shops.
 
