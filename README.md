@@ -161,7 +161,8 @@ router.get('/delete/:id', async (req, res) => {
 Expand University Coverage: Include all universities in Saudi Arabia, offering comprehensive information about their majors, cafes, restaurants, and clubs.
 
 ## Resources
-https://youtu.be/zBTPDAh8ABM?si=aT_f9nl4U9vRx7oq (#)
+- https://youtu.be/zBTPDAh8ABM?si=aT_f9nl4U9vRx7oq(#)
+- https://youtu.be/BDo1lgaZuII?si=ZQWtFhBAIWnxdIzi(#)
 ## Team Members:
 1.	Shahad Almutairi
 2.	Lyane Alrashoud
