@@ -153,7 +153,7 @@ router.get('/delete/:id', async (req, res) => {
 });
 ```
 ## Screenshots:
-- **Homepage**: ![Homepage](public/assets/HomepageSreenshot.png)
+- **Homepage**: ![Homepage](public/assets/HomepageScreenshot.png)
 - **PNU Page**: ![PNU](public/assets/PNUScreenshot.png)
 - **Explore Section**: ![EXPLORE](public/assets/exploreScreenshot.png)
 
