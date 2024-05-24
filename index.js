@@ -1,15 +1,21 @@
+require('dotenv').config();
+console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID);
+console.log('GOOGLE_CLIENT_SECRET:', process.env.GOOGLE_CLIENT_SECRET);
+console.log('GOOGLE_CALLBACK_URL:', process.env.GOOGLE_CALLBACK_URL);
+
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const passport = require('passport');
 const MongoStore = require('connect-mongo');
 const authRoutes = require('./auth');
-const passport = require('passport');
-
-require('dotenv').config();
+const adminRoutes = require('./routes/admin');
+const isAdmin = require('./middleware/isAdmin');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Connect to MongoDB
 mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -21,34 +27,9 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Connected to the database'));
 
-app.use(express.urlencoded({extended: false}));
+// Middleware setup
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(session({
-    secret: 'my secret key',
-    saveUninitialized: true,
-    resave: false,
-}));
-
-app.use((req, res, next) => {
-    res.locals.message = req.session.message;
-    delete req.session.message;
-    next();
-});
-
-app.use(express.static('uploads'));
-app.use(express.static('public'));
-
-app.set('view engine', 'ejs');
-
-// تعيين الصفحة الرئيسية
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-// استخدام التوجيهات الإدارية تحت /admin
-app.use('/admin', require('./routes/admin'));
-
-
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
@@ -58,18 +39,29 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/admin', (req, res) => {
-  // Fetch your data (shops) from the database if necessary and pass it to the template
-  const shops = []; // Replace with actual database fetch logic
-  res.render('admin', { shops });
+// Flash messages
+app.use((req, res, next) => {
+  res.locals.message = req.session.message;
+  delete req.session.message;
+  next();
 });
 
+// Static files
+app.use(express.static('uploads'));
+app.use(express.static('public'));
+
+// View engine
+app.set('view engine', 'ejs');
+
+// Routes
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.use('/admin', isAdmin, adminRoutes);
 app.use(authRoutes);
 
-app.get('/admin', (req, res) => {
-  res.render('admin');
-});
-
+// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
