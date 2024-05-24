@@ -61,6 +61,7 @@ Clone the repository from GitHub:
 ```bash
 git clone https://github.com/LayanAlrashoud/WEB_PROJECT_F.git
 cd WEB_PROJECT_F
+```
 
 ## Routers
 The following are the key routes used in the application:
@@ -147,11 +148,13 @@ router.get('/delete/:id', async (req, res) => {
     res.redirect('/admin');
 });
 
+## Screenshots:
+- **Homepage**: ![Homepage](public/assets/)
+- **PNU Page**: ![PNU](public/assets/PNUScreenshot.png)
+- **Explore Section**: ![EXPLORE](public/assets/exploreScreenshot.png)
 
 ## Future Work
 Expand University Coverage: Include all universities in Saudi Arabia, offering comprehensive information about their majors, cafes, restaurants, and clubs.
-
-## Screenshots:
 
 
 ## Team Members:
