@@ -4,7 +4,7 @@ const Unishop = require('../models/unishop');
 const multer = require('multer');
 const fs = require('fs');
 
-// إعداد رفع الصور 
+
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './uploads');
@@ -19,12 +19,12 @@ var upload = multer({
 }).single('Image');
 
 
-// Get add shop page
+
 router.get('/add', (req, res) => {
     res.render('add_shops', { title: "Add Shops" });
 });
 
-// إضافة متجر جديد
+
 router.post('/add', upload, async (req, res) => {
     try {
         const newShop = new Unishop({
@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get edit shop page
+
 router.get('/edit/:id', (req, res) => {
     const id = req.params.id;
 
@@ -78,7 +78,7 @@ router.get('/edit/:id', (req, res) => {
 
 
 
-// Update shop details
+
 router.post('/update/:id', upload, async (req, res) => {
     const id = req.params.id;
     let new_image = '';
@@ -136,7 +136,7 @@ router.get('/delete/:id', async (req, res) => {
         
         if (result && result.Image != '') {
             try {
-                fs.unlinkSync('./uploads/' + result.Image);  // إضافة '/' قبل اسم الملف
+                fs.unlinkSync('./uploads/' + result.Image);  
             } catch (err) {
                 console.log(err);
             }

@@ -11,6 +11,9 @@ const MongoStore = require('connect-mongo');
 const authRoutes = require('./auth');
 const adminRoutes = require('./routes/admin');
 const isAdmin = require('./middleware/isAdmin');
+const noraRoutes = require('./routes/nora'); 
+const imamRoutes = require('./routes/imam');
+const saudRoutes = require('./routes/saud');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -46,6 +49,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/nora', noraRoutes); 
+app.use('/imam', imamRoutes);
+app.use('/saud', saudRoutes);
 // Static files
 app.use(express.static('uploads'));
 app.use(express.static('public'));
@@ -65,3 +71,6 @@ app.use(authRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
