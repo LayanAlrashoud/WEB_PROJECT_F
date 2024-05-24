@@ -50,17 +50,9 @@ app.get('/login-failure', (req, res) => {
     res.send('Something went wrong');
 });
 University Pages: Routes for each university page.
-app.get('/imamu', (req, res) => {
-    res.render('imamu');
-});
-
-app.get('/ksu', (req, res) => {
-    res.render('ksu');
-});
-
-app.get('/pnu', (req, res) => {
-    res.render('pnu');
-});
+app.use('/nora', noraRoutes); 
+app.use('/imam', imamRoutes);
+app.use('/saud', saudRoutes);
 
 Unishop Routes: Routes for managing university shops.
 
